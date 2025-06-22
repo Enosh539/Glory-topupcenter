@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blox Fruits Membership</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Orbitron:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 2rem 1rem;
+      font-family: 'Orbitron', 'Pirata One', cursive, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a132a, #0f2540, #0d1833, #080c24);
+      color: #a6c8ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      user-select: none;
+      overflow-x: hidden;
+      text-shadow: 0 0 10px #28527a99;
+    }
+
+    .container {
+      background: rgba(12, 18, 38, 0.95);
+      padding: 3rem 2.5rem;
+      border-radius: 25px;
+      box-shadow:
+        0 0 30px #1e3f66cc,
+        inset 0 0 30px #003366aa;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      position: relative;
+      z-index: 1;
+      border: 2px solid #28527a;
+    }
+
+    .logo-wrapper {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .bloxfruits-logo {
+      width: 130px;
+      height: 50px;
+      margin: 0 auto;
+      background: url('https://i.imgur.com/6HL8xTb.png') no-repeat center/contain; /* example Blox Fruits logo */
+      filter: drop-shadow(0 0 10px #ffb347cc);
+      user-select: none;
+    }
+
+    h1 {
+      font-family: 'Pirata One', cursive;
+      font-size: 2.8rem;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+      color: #ffb347;
+      text-shadow:
+        0 0 10px #ffb347cc,
+        0 0 30px #ff9d00cc;
+      letter-spacing: 4px;
+    }
+
+    p.description {
+      font-size: 1.1rem;
+      color: #c9d6ffcc;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+      user-select: text;
+      text-shadow: 0 0 6px #1e3f66cc;
+    }
+
+    .section-title {
+      font-family: 'Pirata One', cursive;
+      font-size: 1.9rem;
+      margin: 2rem 0 1rem 0;
+      color: #ffb347;
+      text-shadow:
+        0 0 12px #ffb347cc,
+        0 0 30px #ff9d00cc;
+      letter-spacing: 2px;
+      border-bottom: 2px solid #ffb347;
+      padding-bottom: 6px;
+    }
+
+    .subscription-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .subscription-item {
+      background: #0c1e3a;
+      border-radius: 18px;
+      padding: 1.4rem 1.8rem;
+      font-size: 1.2rem;
+      box-shadow: inset 0 0 15px #145a96aa;
+      color: #a6c8ff;
+      border: 1.8px solid #145a96cc;
+      text-decoration: none;
+      transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .subscription-item:hover {
+      background: #145a96;
+      color: #fff;
+      box-shadow:
+        0 0 20px #ffd966,
+        inset 0 0 30px #ffd966aa;
+      transform: scale(1.05);
+      border-color: #ffd966;
+    }
+
+    /* Premium packages styling - fiery gold glow */
+    .premium-list .subscription-item {
+      background: linear-gradient(135deg, #ffb347, #ff8c00);
+      border: none;
+      box-shadow:
+        0 0 25px #ffae00,
+        inset 0 0 40px #ffda75;
+      color: #3a1e00;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: 1.8px;
+      transition:
+        background 0.5s ease,
+        box-shadow 0.5s ease,
+        transform 0.3s ease;
+      font-family: 'Pirata One', cursive;
+    }
+
+    .premium-list .subscription-item:hover {
+      background: linear-gradient(135deg, #ff8c00, #ffb347);
+      box-shadow:
+        0 0 35px #ffda75,
+        inset 0 0 50px #ffe98b;
+      color: #4d2e00;
+      transform: scale(1.12);
+      text-shadow: 0 0 10px #5a3700;
+    }
+
+    /* Neon Home Button - match fiery theme */
+    .back-home {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: 2px solid #ffb347;
+      border-radius: 10px;
+      padding: 10px 20px;
+      color: #ffb347;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      box-shadow:
+        0 0 10px #ffb347aa,
+        0 0 20px #ffb347aa;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      z-index: 1000;
+      user-select: none;
+    }
+
+    .back-home:hover {
+      background-color: #ffb347;
+      color: #4d2e00;
+      box-shadow:
+        0 0 25px #ffda75,
+        0 0 40px #ffda75;
+    }
+
+    /* Responsive */
+    @media (max-width: 520px) {
+      .container {
+        padding: 2rem 1.5rem;
+        max-width: 95vw;
+      }
+      .subscription-item {
+        font-size: 1.05rem;
+        padding: 1rem 1.5rem;
+      }
+      .premium-list .subscription-item {
+        font-size: 1.15rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .back-home {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        top: 15px;
+        right: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-home" aria-label="Back to Home">Home</a>
+
+  <div class="container" role="main">
+    <div class="logo-wrapper">
+      <div class="bloxfruits-logo" aria-label="Blox Fruits logo"></div>
+    </div>
+
+    <h1>Blox Fruits Membership</h1>
+    <p class="description">
+      Choose your Blox Fruits package and order directly via WhatsApp.
+    </p>
+
+    <!-- Robux Packages -->
+    <div>
+      <div class="section-title">Robux Packages</div>
+      <div class="subscription-list">
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%2080%20Roblox%20for%20Rs.%20100." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          80 Roblox <strong>Rs. 100</strong>
+        </a>
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%20160%20Roblox%20for%20Rs.%20200." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          160 Roblox <strong>Rs. 200</strong>
+        </a>
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%20500%20Roblox%20for%20Rs.%20780." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          500 Roblox <strong>Rs. 780</strong>
+        </a>
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%201000%20Roblox%20for%20Rs.%201500." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          1000 Roblox <strong>Rs. 1500</strong>
+        </a>
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%202000%20Roblox%20for%20Rs.%202900." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          2000 Roblox <strong>Rs. 2900</strong>
+        </a>
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%205250%20Roblox%20for%20Rs.%206845." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          5250 Roblox <strong>Rs. 6845</strong>
+        </a>
+      </div>
+    </div>
+
+    <!-- Premium Section -->
+    <div class="premium-list">
+      <div class="section-title">Premium Membership</div>
+      <div class="subscription-list">
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%201000%20Premium%20Membership%20for%20Rs.%201500." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          1000 Premium <strong>Rs. 1500</strong>
+        </a>
+        <a href="https://wa.me/9779708065981?text=Hello%2C%20I%20would%20like%20to%20purchase%202200%20Premium%20Membership%20for%20Rs.%202900." 
+           class="subscription-item" target="_blank" rel="noopener noreferrer">
+          2200 Premium <strong>Rs. 2900</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
